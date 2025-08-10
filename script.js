@@ -26,3 +26,12 @@ human.walk()
 // //arrow function
 // const name1 = () => 1 + 2
 // console.log(name1())
+const nameHiman = ["marwan", "ali"];
+const humans = {
+    legs: function (numberOfLeg) {
+    nameHiman.forEach(function (items) {
+        console.log(items + " have " + numberOfLeg + " legs");
+    });
+    },
+};
+humans.legs(10);

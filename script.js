@@ -10,7 +10,7 @@ const human = {
     props : ["Eating","runing"],
     walk: function () {
         props.forEach(function(item){
-            console.log(this.name + " " + item)
+            console.log(this.name + " " + item) // loose binding
         })
         // console.log(this.name + " is walk " + step + " steps");
     },
@@ -26,3 +26,13 @@ human.walk()
 // //arrow function
 // const name1 = () => 1 + 2
 // console.log(name1())
+
+const nameHiman = ["marwan", "ali"];
+const humans = {
+    legs : function(numberOfLeg){
+        nameHiman.forEach(function (items) {
+            console.log(items + " have " + numberOfLeg + " legs");
+        });
+}}
+humans.legs(10)
+

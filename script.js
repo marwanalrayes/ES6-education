@@ -35,3 +35,33 @@ const humans = {
     },
 };
 humans.legs(10);
+//----New Example-------------------------------------------------------
+// function showThis(){
+//     console.log(this)
+// }
+// const user ={
+//     name: "marwan",
+//     show :showThis
+// }
+// //what the deferant between it :-
+// // تعريف ال this بتتعرف عن طريق ال object الي هي فيها
+// showThis()//بيصير ما الها ريفرنس
+// user.show()//لو كانت داخل اوبجيكت فصارت بتاشر على الاوبجيكت هاي
+
+
+//----New Example-------------------------------------------------------
+const admin ={
+    username : "admin",
+    password : 123,
+    login : function(){
+        console.log("login "+this.username+" with pass: "+this.password)
+    }
+}
+admin.login()
+
+const user ={
+    username : "marwan",
+    password : 12345,
+    login :admin.login
+}
+user.login()

@@ -50,18 +50,30 @@ humans.legs(10);
 
 
 //----New Example-------------------------------------------------------
-const admin ={
-    username : "admin",
-    password : 123,
-    login : function(){
-        console.log("login "+this.username+" with pass: "+this.password)
+// const admin ={
+//     username : "admin",
+//     password : 123,
+//     login : function(){
+//         console.log("login "+this.username+" with pass: "+this.password)
+//     }
+// }
+// admin.login()
+
+// const user ={
+//     username : "marwan",
+//     password : 12345,
+//     login :admin.login
+// }
+// user.login()
+//----How can i fixed by (bind)-------------------------------------------------------
+const prop = ["eating","running"]
+function printAnimalProp(itemm) {
+    console.log(this.name + " " + itemm);
+}
+const animals ={
+    name:"rabbit",
+    printProp: function(){
+        prop.forEach(printAnimalProp.bind(animals))
     }
 }
-admin.login()
-
-const user ={
-    username : "marwan",
-    password : 12345,
-    login :admin.login
-}
-user.login()
+animals.printProp();

@@ -1,21 +1,21 @@
-const props = ["eating","running"]
-const animal = {
-    name : "Rabite",
-    walk : function(step){
-        console.log("walk", step);
-    }
-};
-const human = {
-    name: "Rabite",
-    props : ["Eating","runing"],
-    walk: function () {
-        props.forEach(function(item){
-            console.log(this.name + " " + item)
-        })
-        // console.log(this.name + " is walk " + step + " steps");
-    },
-};
-human.walk()
+// const props = ["eating","running"]
+// const animal = {
+//     name : "Rabite",
+//     walk : function(step){
+//         console.log("walk", step);
+//     }
+// };
+// const human = {
+//     name: "Rabite",
+//     props : ["Eating","runing"],
+//     walk: function () {
+//         props.forEach(function(item){
+//             console.log(this.name + " " + item)
+//         })
+//         // console.log(this.name + " is walk " + step + " steps");
+//     },
+// };
+// human.walk()
 // const dog ={
 //     name : "Dog",
 // }
@@ -26,15 +26,15 @@ human.walk()
 // //arrow function
 // const name1 = () => 1 + 2
 // console.log(name1())
-const nameHiman = ["marwan", "ali"];
-const humans = {
-    legs: function (numberOfLeg) {
-    nameHiman.forEach(function (items) {
-        console.log(items + " have " + numberOfLeg + " legs");
-    });
-    },
-};
-humans.legs(10);
+// const nameHiman = ["marwan", "ali"];
+// const humans = {
+//     legs: function (numberOfLeg) {
+//     nameHiman.forEach(function (items) {
+//         console.log(items + " have " + numberOfLeg + " legs");
+//     });
+//     },
+// };
+// humans.legs(10);
 //----New Example-------------------------------------------------------
 // function showThis(){
 //     console.log(this)
@@ -66,14 +66,30 @@ humans.legs(10);
 // }
 // user.login()
 //----How can i fixed by (bind)-------------------------------------------------------
-const prop = ["eating","running"]
-function printAnimalProp(itemm) {
-    console.log(this.name + " " + itemm);
-}
-const animals ={
-    name:"rabbit",
-    printProp: function(){
-        prop.forEach(printAnimalProp.bind(animals))
+// const prop = ["eating","running"]
+// function printAnimalProp(itemm) {
+//     console.log(this.name + " " + itemm);
+// }
+// const animals ={
+//     name:"rabbit",
+//     printProp: function(){
+//         prop.forEach(printAnimalProp.bind(animals))
+//     }
+// }
+// animals.printProp();
+//----How can i fixed by (call)-------------------------------------------------------
+const admin ={
+    username : "admin",
+    password : 123,
+    login : function(){
+        console.log("login "+this.username+" with pass: "+this.password)
     }
 }
-animals.printProp();
+admin.login()
+
+const user ={
+    username : "marwan",
+    password : 12345,
+}
+const deleteUserUtility = admin.login.bind(user);
+deleteUserUtility()

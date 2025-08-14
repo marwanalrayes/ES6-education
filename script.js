@@ -78,19 +78,38 @@
 // }
 // animals.printProp();
 //----How can i fixed by (call)-------------------------------------------------------
-const admin ={
-    username : "admin",
-    password : 123,
-    login : function(){
-        console.log("login "+this.username+" with pass: "+this.password)
+// const admin ={
+//     username : "admin",
+//     password : 123,
+//     login : function(){
+//         console.log("login "+this.username+" with pass: "+this.password)
+//     }
+// }
+// admin.login()
+
+// const user ={
+//     username : "marwan",
+//     password : 12345,
+// }
+// //ال call هو عبارة عن bind and calling لكن ال bind لحالها بتعمل فقط calling
+// const deleteUserUtility = admin.login.bind(user);
+// deleteUserUtility()
+
+//----NEW Example-------------------------------------------------------
+const user = {
+    name : "marwan",
+    baseBalance:1000,
+    calcBalance(tax,fees){
+        return this.baseBalance -(this.baseBalance * tax) - fees
     }
 }
-admin.login()
+console.log(user.calcBalance(0.2,200))
+const calcUtility =user.calcBalance
+//const calcUtility =user.calcBalance.bind(user)
+console.log(calcUtility(0.2,200))
+//console.log(calcUtility.call(user,0.2,200))  || console.log(calcUtility.apply(user,[0.2,200]))
 
-const user ={
-    username : "marwan",
-    password : 12345,
-}
-//ال call هو عبارة عن bind and calling لكن ال bind لحالها بتعمل فقط calling
-const deleteUserUtility = admin.login.bind(user);
-deleteUserUtility()
+//في هاي الحالة رح يطبع 600 فقط و رح يعطيني بالمرة التانية NaN طيب شو الحل ؟
+//1> const calcUtility =user.calcBalance.bind(user) تعريف bind واخليها تاشر على ال user
+//2> console.log(calcUtility.call(user,0.2,200)) او ممكن من خلال call وبعطيها ال user قبل ال0.2و200
+//3> console.log(calcUtility.apply(user,[0.2,200]))نفس الي بتعملو ال call لكن هان بعطيها ال attributs تبعتها من خلال array

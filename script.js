@@ -91,5 +91,6 @@ const user ={
     username : "marwan",
     password : 12345,
 }
+//ال call هو عبارة عن bind and calling لكن ال bind لحالها بتعمل فقط calling
 const deleteUserUtility = admin.login.bind(user);
 deleteUserUtility()
